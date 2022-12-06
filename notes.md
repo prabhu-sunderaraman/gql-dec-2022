@@ -39,7 +39,8 @@
 
 * Functions with variables
 
-```
+``` graphql
+
 query ($avail: Boolean, $bid: ID) {
   books(available: $avail) {
     title
@@ -56,9 +57,13 @@ query ($avail: Boolean, $bid: ID) {
   "avail": true,
   "bid": "b104"
 }
-```
 
 ```
+
+* Fragments
+
+``` graphql
+
 query($available: Boolean, $bookId: ID) {
   books(available: $available) {
     ...mandatoryBookFields
