@@ -1,6 +1,6 @@
 let resolvers = {
     Query: {
-        hello: () => "Hello there!"
+        allBooks: () => []
     }
 };
 
