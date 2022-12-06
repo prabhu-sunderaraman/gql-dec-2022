@@ -84,7 +84,7 @@ fragment mandatoryBookFields on Book {
 
 ``` graphql
 
-query {
+query StockOfBooks {
   inStockBooks: books(available: true) {
     bookId: id
     bookTitle: title
@@ -99,4 +99,17 @@ query {
 
 ```
 
+* Directives
 
+``` graphql
+
+query($available: Boolean!) {
+  books(available: $available) {
+    title
+    price
+    inStock @skip(if: $available)
+    unitsSold @include(if: $available)
+  }
+}
+
+```
