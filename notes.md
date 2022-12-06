@@ -80,5 +80,23 @@ fragment mandatoryBookFields on Book {
 } 
 ```   
 
+* Aliases for queries and fields
+
+``` graphql
+
+query {
+  inStockBooks: books(available: true) {
+    bookId: id
+    bookTitle: title
+    bookPrice: price
+  }
+  outOfStockBooks: books(available: false) {
+    bookId: id
+    bookTitle: title
+    bookPrice: price
+  }
+}
+
+```
 
 
