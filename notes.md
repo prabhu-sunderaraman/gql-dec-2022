@@ -27,3 +27,18 @@
 * cd day01
 * sudo npm init
 * sudo npm i --save graphql @apollo/server
+
+
+### Things you need for graphql
+
+* Schema - __All the clients or UI uses this schema__
+* Resolver - __Engine that executes the queries and provide the response__
+
+
+
+
+
+
+
+
+
