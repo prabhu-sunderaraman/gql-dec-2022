@@ -35,8 +35,28 @@
 * Resolver - __Engine that executes the queries and provide the response__
 
 
+### Query syntax
 
+* Functions with variables
 
+```
+query ($avail: Boolean, $bid: ID) {
+  books(available: $avail) {
+    title
+    price
+  }
+  book(id: $bid) {
+    title
+    price
+  }
+}
+
+//Variables
+{
+  "avail": true,
+  "bid": "b104"
+}
+```
 
 
 

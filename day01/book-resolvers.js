@@ -12,7 +12,11 @@ let resolvers = {
     Query: {
         allBooks: () => db.books,
         book: (src, args) => {
+            console.log("very specific to apolloserver", src);
             return db.books.find(b => b.id === args.id)
+        },
+        books: (src, args) => {
+            return db.books.filter(b => b.inStock === args.available)
         }
     }
 };

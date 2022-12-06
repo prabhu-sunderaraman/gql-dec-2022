@@ -9,7 +9,8 @@ let schema = `
 
     type Query {
         allBooks: [Book],
-        book(id: ID): Book
+        book(id: ID): Book,
+        books(available: Boolean): [Book]
     }
 `;
 
