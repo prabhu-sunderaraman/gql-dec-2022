@@ -1,19 +1,7 @@
 const {ApolloServer} = require("@apollo/server");
 const {startStandaloneServer} = require("@apollo/server/standalone")
-
-let schema = `
-    type Query {
-        temperature: Float,
-        stockPrice: Float
-    }
-`;
-
-let resolvers = {
-    Query: {
-        temperature: () => Math.random() * 100,
-        stockPrice: () => Math.random() * 10000
-    }
-};
+let schema = require('./book-schema');
+let resolvers = require('./book-resolvers');
 
 let server = new ApolloServer({
     typeDefs: schema,
