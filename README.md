@@ -1,9 +1,9 @@
-# Redux, GraphQL, Apollo
+# GraphQL, Apollo
 
 ```javascript
 const instructorDetails = {
 	name: "Prabhu Sunderaraman",
-	email: "prabhu@durasoftindia.com",
+	email: "prabhu.bits@gmail.com",
 	books: ["Spring 3.0 Black Book", "Practical Ext JS 4"],
 	blog: "http://healthycoder.in"
 }
