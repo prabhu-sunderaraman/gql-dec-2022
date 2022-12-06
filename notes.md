@@ -58,7 +58,22 @@ query ($avail: Boolean, $bid: ID) {
 }
 ```
 
-
+```
+query($available: Boolean, $bookId: ID) {
+  books(available: $available) {
+    ...mandatoryBookFields
+  }
+  book(id: $bookId) {
+    ...mandatoryBookFields
+  }
+}
+fragment mandatoryBookFields on Book {
+  title
+  price
+  inStock
+  unitsSold
+} 
+```   
 
 
 
