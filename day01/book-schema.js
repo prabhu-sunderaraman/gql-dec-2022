@@ -8,7 +8,8 @@ let schema = `
     }
 
     type Query {
-        allBooks: [Book]
+        allBooks: [Book],
+        book(id: ID): Book
     }
 `;
 

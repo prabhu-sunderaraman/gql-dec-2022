@@ -10,7 +10,10 @@ let db = {
 
 let resolvers = {
     Query: {
-        allBooks: () => db.books
+        allBooks: () => db.books,
+        book: (src, args) => {
+            return db.books.find(b => b.id === args.id)
+        }
     }
 };
 
