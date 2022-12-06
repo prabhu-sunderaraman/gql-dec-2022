@@ -16,3 +16,14 @@
 * It completely __decouples__ your FE from all the BE Apis
 * You avoid hitting the Apis individually. You can club several requests and hand them over to GraphQL
 * Filtering out data. You ask only for that data that you need. GraphQL filters it out
+
+## Set up a graphql server using Apollo
+
+* Latest version of Apollo is v4
+* A lot of times, in your project, you may not have the luxury to set up a graphql server
+* It may have been already setup and configured and up and running
+
+* mkdir day01
+* cd day01
+* sudo npm init
+* sudo npm i --save graphql @apollo/server
