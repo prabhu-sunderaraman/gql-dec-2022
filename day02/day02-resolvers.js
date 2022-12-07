@@ -18,11 +18,12 @@ let db = {
 let resolvers = {
     Item: {
         __resolveType: (obj) => {
-            if(obj.inStock) {
+            if(obj.inStock !== undefined) {
                 return "Book";
-            } else if(obj.kindleUnlimited) {
+            } else if(obj.kindleUnlimited !== undefined) {
                 return "EBook";
             }
+            return null;
         }
     },
     Query: {
