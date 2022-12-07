@@ -136,3 +136,30 @@ query AllItems {
 }
 
 ```
+
+* union of types
+* __union MostViewed = Mobile | OfficeChair | Book__
+``` graphql
+
+query Mobile {
+  mostViewed {
+    type: __typename
+    ... on Mobile {
+      id
+      model
+    }
+    ... on OfficeChair {
+      id
+      material
+    }
+    ... on Book {
+      id
+      title
+      price
+      inStock
+
+    }
+  }
+}
+
+```
