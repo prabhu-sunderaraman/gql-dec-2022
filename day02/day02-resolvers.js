@@ -57,6 +57,33 @@ let resolvers = {
             let items = [db.books[1], db.officeChairs[1], db.mobiles[1]]
             return items;
         }
+    },
+    Mutation: {
+        addMobile: (src, args) => {
+            let id = `m${Math.floor(Math.random() * 10000)}`
+            let mobile = { id, model: args.model };
+            db.mobiles.push(mobile);
+            return mobile;
+        },
+        updateBookPrice: (src, {bookId, price}) => {
+            let book = db.books.find(book => book.id === bookId);
+            if(book) {
+                book.price = price;
+            }
+            return book;
+        },
+        removeOfficeChair: (src, {officeChairId}) => {
+            db.officeChairs = db.officeChairs.filter(oc => oc.id !== officeChairId);
+            return null;
+        },
+        addBook: (src, { addBookInput }) => {
+            let {title, price, inStock} = addBookInput ;    
+            let id = `b${Math.floor(Math.random() * 10000)}`
+            let book = { id, title, price, inStock }
+            db.books.push(book);
+            return book;
+        }
+
     }
 };
 

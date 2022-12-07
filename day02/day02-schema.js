@@ -42,12 +42,25 @@ let schema = `
 
     union MostViewed = Mobile | OfficeChair | Book
 
+    input AddBookInput {
+        title: String,
+        price: Float,
+        inStock: Boolean
+    }
+
     type Query {
         books: [Book],
         booksWith4StarRatings: [Book],
         ebooks: [EBook],
         allItems: [Item],
         mostViewed: [MostViewed]
+    }
+
+    type Mutation {
+        addMobile(model: String): Mobile,
+        updateBookPrice(bookId: ID, price: Float): Book,
+        removeOfficeChair(officeChairId: ID): OfficeChair,
+        addBook(addBookInput: AddBookInput): Book
     }
 `;
 
