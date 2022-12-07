@@ -100,7 +100,7 @@ query StockOfBooks {
 ```
 
 * Directives
-* __Notice the mandatory or Non-nullable operator in query function when you use directives__
+* __Notice the mandatory or Non-nullable operator in query function's argument when you use directives__
 
 ``` graphql
 

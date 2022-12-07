@@ -4,7 +4,8 @@ let schema = `
         title: String,
         price: Float,
         inStock: Boolean,
-        unitsSold: Int
+        unitsSold: Int,
+        publisher: String @deprecated(reason: "Use somethingelse.")
     }
 
     type Query {
