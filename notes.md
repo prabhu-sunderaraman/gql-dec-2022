@@ -193,3 +193,8 @@ query getItems($bid: String, $model: String) {
 
 ```
 
+## Merge Schemas and resolvers
+
+* Practically you will maintain the schema and resolvers in a separate set schema files and resolver files
+* Merge them using __@graphql-tools/merge__
+* use _mergeTypeDefs_ and _mergeResolvers_
