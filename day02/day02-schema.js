@@ -7,7 +7,14 @@ let schema = `
         fourStar: Int
     }
 
-    type EBook {
+    interface Item {
+        id: ID!,
+        title: String,
+        price: Float,
+        ratings: Ratings
+    }
+
+    type EBook implements Item {
         id: ID!,
         title: String,
         price: Float,
@@ -15,7 +22,7 @@ let schema = `
         kindleUnlimited: Boolean
     }
 
-    type Book {
+    type Book implements Item {
         id: ID!,
         title: String,
         price: Float,
@@ -26,7 +33,8 @@ let schema = `
     type Query {
         books: [Book],
         booksWith4StarRatings: [Book],
-        ebooks: [EBook]
+        ebooks: [EBook],
+        allItems: [Item]
     }
 `;
 
