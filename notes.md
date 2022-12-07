@@ -163,3 +163,33 @@ query Mobile {
 }
 
 ```
+
+``` C#
+
+  void getItems(String bid, String model) {
+    getBook(bid);
+    getMobile(model);
+  }
+
+
+```
+
+``` graphql
+
+query getItems($bid: String, $model: String) {
+
+  books(bookId: $bid) {
+  }
+
+  mobiles(model: $model) {
+  }
+}
+
+#Variables
+{
+   bid: "",
+   model: ""
+}
+
+```
+
