@@ -114,3 +114,24 @@ query($available: Boolean!) {
 }
 
 ```
+
+* Inline Fragments
+
+``` graphql
+
+query AllItems {
+  allItems {
+    type: __typename
+    id
+    price
+    title
+    ... on Book {
+      inStock
+    }
+    ... on EBook {
+      kindleUnlimited
+    }
+  }
+}
+
+```
