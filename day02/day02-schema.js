@@ -7,6 +7,14 @@ let schema = `
         fourStar: Int
     }
 
+    type EBook {
+        id: ID!,
+        title: String,
+        price: Float,
+        ratings: Ratings,
+        kindleUnlimited: Boolean
+    }
+
     type Book {
         id: ID!,
         title: String,
@@ -17,7 +25,8 @@ let schema = `
 
     type Query {
         books: [Book],
-        booksWith4StarRatings: [Book]
+        booksWith4StarRatings: [Book],
+        ebooks: [EBook]
     }
 `;
 
