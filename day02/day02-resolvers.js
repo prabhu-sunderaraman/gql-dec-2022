@@ -10,7 +10,10 @@ let db = {
 
 let resolvers = {
     Query: {
-        books: () => db.books
+        books: () => db.books,
+        booksWith4StarRatings: () => {
+            return db.books.filter(book => book.ratings.fourStar > 0)
+        }
     }
 };
 

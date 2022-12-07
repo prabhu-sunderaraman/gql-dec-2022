@@ -16,7 +16,8 @@ let schema = `
     }
 
     type Query {
-        books: [Book]
+        books: [Book],
+        booksWith4StarRatings: [Book]
     }
 `;
 
