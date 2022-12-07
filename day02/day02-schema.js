@@ -42,10 +42,17 @@ let schema = `
 
     union MostViewed = Mobile | OfficeChair | Book
 
+    input AddRatingsInput {
+        oneStar: Int = 0,
+        twoStar: Int = 0,
+        threeStar: Int = 0,
+        fourStar: Int = 0,
+    }
     input AddBookInput {
-        title: String,
-        price: Float,
-        inStock: Boolean
+        title: String!,
+        price: Float!,
+        inStock: Boolean! = true,
+        ratings: AddRatingsInput
     }
 
     type Query {

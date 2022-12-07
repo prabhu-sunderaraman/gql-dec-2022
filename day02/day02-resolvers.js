@@ -77,9 +77,9 @@ let resolvers = {
             return null;
         },
         addBook: (src, { addBookInput }) => {
-            let {title, price, inStock} = addBookInput ;    
+            let {title, price, inStock, ratings} = addBookInput ;    
             let id = `b${Math.floor(Math.random() * 10000)}`
-            let book = { id, title, price, inStock }
+            let book = { id, title, price, inStock, ratings }
             db.books.push(book);
             return book;
         }
