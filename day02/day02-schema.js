@@ -1,5 +1,15 @@
 let schema = `
 
+    type Mobile {
+        id: ID!,
+        model: String
+    }
+
+    type OfficeChair {
+        id: ID!,
+        material: String
+    }
+
     type Ratings {
         oneStar: Int,
         twoStar: Int,
@@ -30,11 +40,14 @@ let schema = `
         ratings: Ratings
     }
 
+    union MostViewed = Mobile | OfficeChair | Book
+
     type Query {
         books: [Book],
         booksWith4StarRatings: [Book],
         ebooks: [EBook],
-        allItems: [Item]
+        allItems: [Item],
+        mostViewed: [MostViewed]
     }
 `;
 

@@ -1,4 +1,12 @@
 let db = {
+    mobiles: [
+        { id: "m101", model: "OnePlus13" },
+        { id: "m102", model: "Oppo" }
+    ],
+    officeChairs: [
+        { id: "oc101", material: "Cushion" },
+        { id: "oc102", material: "Pushback" }
+    ],
     books: [
         { id: "b101", title: "ABC", price: 12.34, inStock: true, ratings: { oneStar: 10, twoStar: 5, threeStar: 18, fourStar: 100 } },
         { id: "b102", title: "DEF", price: 112.34, inStock: true, ratings: { oneStar: 210, twoStar: 335, threeStar: 128, fourStar: 1200 }  },
@@ -16,6 +24,18 @@ let db = {
 };
 
 let resolvers = {
+    MostViewed: {
+        __resolveType: (obj) => {
+            if(obj.inStock !== undefined) {
+                return "Book";
+            } else if(obj.material !== undefined) {
+                return "OfficeChair";
+            } else if(obj.model !== undefined) {
+                return "Mobile";
+            }
+            return null;
+        }
+    },
     Item: {
         __resolveType: (obj) => {
             if(obj.inStock !== undefined) {
@@ -32,7 +52,11 @@ let resolvers = {
             return db.books.filter(book => book.ratings.fourStar > 0)
         },
         ebooks: () => db.ebooks,
-        allItems: () => db.books.concat(db.ebooks)
+        allItems: () => db.books.concat(db.ebooks),
+        mostViewed: () => {
+            let items = [db.books[1], db.officeChairs[1], db.mobiles[1]]
+            return items;
+        }
     }
 };
 

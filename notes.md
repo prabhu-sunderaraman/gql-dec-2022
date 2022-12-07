@@ -121,7 +121,8 @@ query($available: Boolean!) {
 
 query AllItems {
   allItems {
-    type: __typename
+# __typename is not mandatory    
+#    type: __typename
     id
     price
     title
