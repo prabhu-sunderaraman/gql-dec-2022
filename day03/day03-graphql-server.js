@@ -6,15 +6,19 @@ const HelloApi = require("./day03-hello-api");
 
 let server = new ApolloServer({
     typeDefs: schema,
-    resolvers
+    resolvers,
+    //cache: //Configure External cache; default is InMemoryCache
 });
 
 startStandaloneServer(server, {
     listen: 9000,
-    context: () => {
+    context: async ({req}) => {
+        let {cache} = server;
+        const token = req.headers['authorization'];
         return {
             dataSources: {
-                helloApi: new HelloApi()
+                helloApi: new HelloApi({cache, token}),
+//                moviesApi: new MoviesApi()
             }
         }
     } 
