@@ -9,7 +9,7 @@ Here's the list of movies in the DB.
 	"language": "English",
 	"ratings": [{
 		"source": "Internet Movie Database",
-		"value": "6.8"
+		"value": 6.8
 	}, {
 		"source": "Rotten Tomatoes",
 		"value": "68%"
@@ -22,7 +22,7 @@ Here's the list of movies in the DB.
 	"language": "Hindi",
 	"ratings": [{
 			"source": "Internet Movie Database",
-			"value": "8.3"
+			"value": 8.3
 		}, {
 			"source": "Rotten Tomatoes",
 			"value": "93%"
@@ -35,7 +35,7 @@ Here's the list of movies in the DB.
 	"language": "Tamil",
 	"ratings": [{
 		"source": "Internet Movie Database",
-		"value": "6.5/10"
+		"value": 6.5
 	}, {
 		"source": "Rotten Tomatoes",
 		"value": "71%"
@@ -48,7 +48,7 @@ Here's the list of movies in the DB.
 	"language": "Hindi",
 	"ratings": [{
 		"source": "Internet Movie Database",
-		"value": "4.5/10"
+		"value": 4.5
 	}, {
 		"source": "Rotten Tomatoes",
 		"value": "51%"
