@@ -271,6 +271,11 @@ query Query($year: Int, $value: Float) {
 
 ### Connecting to backend service using Apollo
 
+* Install express for backend service
+* sudo npm i --save express
+
+<br/>
+
 * sudo npm i --save @apollo/datasource-rest
 * Create API class that extends RESTDataSource
 * Register the API with the ApolloServer
