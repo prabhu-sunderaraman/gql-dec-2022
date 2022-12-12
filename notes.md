@@ -198,3 +198,73 @@ query getItems($bid: String, $model: String) {
 * Practically you will maintain the schema and resolvers in a separate set schema files and resolver files
 * Merge them using __@graphql-tools/merge__
 * use _mergeTypeDefs_ and _mergeResolvers_
+
+
+``` json
+
+interface Rating {
+  source: String
+}
+
+type ImdbRating implements Rating {
+  source: String,
+  value: Float
+}
+
+type RTRating implements Rating {
+  source: String,
+  value: String
+}
+
+resolvers: {
+  Rating: {
+    __resolveType: (obj) => {
+          if(typeof(obj.value) === 'string') 
+            return 'RTRating';
+          else if(typeof(obj.value) === 'number') 
+            return 'ImdbRating'
+      }
+  }
+}
+
+```
+
+* Lab01 queries
+
+``` graphql
+
+query Query($year: Int, $value: Float) {
+  ratingSources
+  moviesReleased(year: $year) {
+    id
+    name
+    year
+    language
+    cast {
+      actors
+    }
+    ratings {
+      source
+    }
+  }
+  moviesWithImdbRatingLessThan(value: $value) {
+    id
+    name
+    year
+    language
+    cast {
+      actors
+    }
+    ratings {
+      source
+      ... on ImdbRating {
+        imdbValue: value
+      }
+      ... on RottenTomatoesRating {
+        rtValue: value
+      }
+    }
+  }
+}
+
+```
