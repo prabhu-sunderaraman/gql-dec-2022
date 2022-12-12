@@ -3,10 +3,10 @@ Here's the list of movies in the DB.
 
 ``` json 
 {
-	id: "m101",
-	name: "Spectre",
-	year: 2015,
-	language: "English",
+	"id": "m101",
+	"name": "Spectre",
+	"year": 2015,
+	"language": "English",
 	"ratings": [{
 		"source": "Internet Movie Database",
 		"value": "6.8"
@@ -16,10 +16,10 @@ Here's the list of movies in the DB.
 	}]
 }, 
 {
-	id: "m102",
-	name: "Lagaan",
-	year: 2002,
-	language: "Hindi",
+	"id": "m102",
+	"name": "Lagaan",
+	"year": 2002,
+	"language": "Hindi",
 	"ratings": [{
 			"source": "Internet Movie Database",
 			"value": "8.3"
@@ -29,10 +29,10 @@ Here's the list of movies in the DB.
 		}]
 }, 
 {
-	id: "m103",
-	name: "Kaala",
-	year: 2019,
-	language: "Tamil",
+	"id": "m103",
+	"name": "Kaala",
+	"year": 2019,
+	"language": "Tamil",
 	"ratings": [{
 		"source": "Internet Movie Database",
 		"value": "6.5/10"
@@ -42,10 +42,10 @@ Here's the list of movies in the DB.
 	}]
 },
 {
-	id: "m104",
-	name: "Don",
-	year: 2008,
-	language: "Hindi",
+	"id": "m104",
+	"name": "Don",
+	"year": 2008,
+	"language": "Hindi",
 	"ratings": [{
 		"source": "Internet Movie Database",
 		"value": "4.5/10"
