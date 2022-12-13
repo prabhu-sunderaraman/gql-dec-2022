@@ -280,3 +280,10 @@ query Query($year: Int, $value: Float) {
 * Create API class that extends RESTDataSource
 * Register the API with the ApolloServer
 * Use the API from the resolver
+
+
+### GraphQL with react
+
+* sudo npx create-react-app day04-react-app
+* sudo npm i --save graphql @apollo/client
+* sudo npm start
