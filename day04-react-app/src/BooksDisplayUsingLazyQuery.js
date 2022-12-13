@@ -14,7 +14,7 @@ const allBooksQuery = gql`
 `;
 
 export function BooksDisplayUsingLazyQuery() {
-    const [fetchBooksQuery, {loading, error, data}] = useLazyQuery(allBooksQuery, { pollInterval: 5000,fetchPolicy: "cache-first" });
+    const [fetchBooksQuery, {loading, error, data}] = useLazyQuery(allBooksQuery, { pollInterval: 5000, fetchPolicy: "cache-only" });
     const [books, setBooks] = useState([]);
     const [message, setMessage] = useState([]);
 
