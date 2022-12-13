@@ -1,4 +1,4 @@
-import { gql, useLazyQuery, useMutation } from "@apollo/client";
+import { gql, useLazyQuery, useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 const addBookMutation = gql`
@@ -25,37 +25,41 @@ const allBooksQuery = gql`
 `;
 
 export function AddBook() {
+    //const {data, loading, error} = useQuery(allBooksQuery, {fetchPolicy: "cache-only"});
     const [fetchBooksQuery, {data, loading, error}] = useLazyQuery(allBooksQuery);
-    const [addBook] = useMutation(addBookMutation, {
-        refetchQueries: fetchBooksQuery
-    });
-
     // const [addBook] = useMutation(addBookMutation, {
-    //     update(cache, {data: { addBook }}) {
-    //         cache.modify({
-    //             fields: {
-    //                 allBooks(existingBooks = []) {
-    //                     let newBook = cache.writeFragment({
-    //                       data: addBook,
-    //                       fragment: gql`
-    //                         fragment NewBook on Book {
-    //                           id
-    //                           title
-    //                           price
-    //                           inStock
-    //                         }
-    //                       `
-    //                     });
-    //                     return [...existingBooks, newBook];
-    //                   } 
-    //             }
-    //         })
-    //     }
+    //     refetchQueries: fetchBooksQuery
     // });
+
+
+    const [addBook] = useMutation(addBookMutation, {
+        update(cache, {data: { addBook }}) {
+            cache.modify({
+                fields: {
+                    allBooks(existingBooks = []) {
+                        console.log(addBook);
+                        let newBook = cache.writeFragment({
+                          data: addBook,
+                          fragment: gql`
+                            fragment NewBook on Book {
+                              id
+                              title
+                              price
+                              inStock
+                            }
+                          `
+                        });
+                        return [...existingBooks, newBook];
+                      } 
+                }
+            })
+        }
+    });
     
     const [books, setBooks] = useState([]);
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState(0.0)
+    
     
     
     useEffect(() => {
@@ -70,10 +74,7 @@ export function AddBook() {
                 title,
                 price
             }
-        })
-        .then(response => {
-            //fetchBooksQuery()
-        });
+        })//.then(response => fetchBooksQuery());
     }
 
     return (<div>
@@ -92,5 +93,7 @@ export function AddBook() {
             }   
             </tbody>
         </table>
+        <hr/>
+        <button onClick={() => fetchBooksQuery()}>Fetch books</button>
     </div>);
 }

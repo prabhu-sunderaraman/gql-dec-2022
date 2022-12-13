@@ -11,7 +11,7 @@ let db = {
 let resolvers = {
     Query: {
         allBooks: () => {
-//            console.log("allbooks called at", new Date().getTime())
+            console.log("allbooks called at", new Date().getTime())
             return db.books
         },
         book: (src, args) => {
